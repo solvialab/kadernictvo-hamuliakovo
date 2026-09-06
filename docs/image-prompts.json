@@ -1,0 +1,31 @@
+{
+  "mode": "built-in image_gen",
+  "generatedCount": 3,
+  "retries": 0,
+  "assets": [
+    {
+      "name": "hero",
+      "path": "C:/Users/skulik/.codex/generated_images/01a0776b-455d-7f72-b71d-49dc9d69a0ea/exec-ec8108a0-ca30-446d-9960-789502208324.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: illustrative hero photo for a Slovak intimate hair salon website.\nPrimary request: One standalone portrait-oriented 1024x1536 photograph, high-fashion close portrait of an adult woman with voluminous wavy chestnut bob. Her face is turned sideways with lowered eyes. Her hair is the sculptural focal point. Simple black top, framed from head to upper torso.\nScene/backdrop: warm gray studio background.\nStyle/medium: high-end quiet fashion editorial photography, natural realistic individual hair strands, matte film finish, realistic skin texture.\nLighting/mood: directional soft window sunlight, intimate and calm.\nColor palette: warm ivory #F3EFE8, espresso #201E1B, muted burgundy #643A40 atmosphere; chestnut hair and black clothing.\nConstraints: one image only, no collage, no text, no logo, no watermark. Keep the full silhouette of the bob visible. This is an illustrative model portrait, not a specific real person.",
+      "width": 1024,
+      "height": 1536,
+      "qa": "Portrait shows an adult woman with voluminous wavy chestnut bob, lowered eyes, black top and warm gray background. No text."
+    },
+    {
+      "name": "detail",
+      "path": "C:/Users/skulik/.codex/generated_images/01a0776b-455d-7f72-b71d-49dc9d69a0ea/exec-64280671-2d0d-4f09-8346-8b45e267fabe.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: illustrative detail photo for a Slovak intimate hair salon website.\nPrimary request: One standalone portrait-oriented 1024x1536 close-up photograph of anonymous hands gently arranging rich brown long wavy hair. The face is mostly outside the crop. Linen beige clothing.\nStyle/medium: high-end quiet fashion editorial photography, honest photographic detail, natural individual hair strands, realistic hand anatomy, matte film finish.\nLighting/mood: soft natural window light, intimate and calm.\nColor palette: warm ivory #F3EFE8, espresso #201E1B, muted burgundy #643A40 atmosphere with rich brown hair and beige linen.\nComposition/framing: focus on hands and long flowing waves, tight close crop, natural gesture.\nConstraints: one image only, no collage, no scissors, no tools, no text, no logo, no watermark. Illustrative detail image.",
+      "width": 1024,
+      "height": 1536,
+      "qa": "Portrait detail shows two anatomically plausible hands arranging brown wavy hair, beige linen, face outside crop, no scissors or text."
+    },
+    {
+      "name": "interior",
+      "path": "C:/Users/skulik/.codex/generated_images/01a0776b-455d-7f72-b71d-49dc9d69a0ea/exec-84757c25-f317-4864-aab3-002364d2b360.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: illustrative interior photo for a Slovak intimate hair salon website.\nPrimary request: One standalone landscape-oriented 1536x1024 photograph of a small tasteful hair atelier with EXACTLY TWO styling chairs and EXACTLY TWO wall mirrors, only two styling stations.\nScene/backdrop: warm limewash walls, two dark brown simple leather styling chairs, oak shelf, linen details, soft daylight. Compact personal atelier.\nStyle/medium: high-end quiet interiors editorial photography, realistic materials, matte film finish.\nLighting/mood: soft natural daylight, intimate and serene.\nColor palette: warm ivory #F3EFE8, espresso #201E1B, muted burgundy #643A40 atmosphere, natural oak and dark brown leather.\nComposition/framing: both of the only two chairs and both mirrors clearly visible, considered spacious framing of a physically small room.\nConstraints: EXACTLY TWO styling chairs total. EXACTLY TWO wall mirrors total. No people. No other seating of any kind. No extra chairs in reflections. No additional styling stations. No large salon rows. No text, no logo, no watermark, no collage. Illustrative room, not documentation of a specific existing salon.",
+      "width": 1536,
+      "height": 1024,
+      "qa": "Landscape shows exactly two physical styling chairs and two mirrors. The chair tops visible in the mirrors are reflections of those same two chairs. No additional seating or people. No text."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-09-06",
+  "license": "Unsplash License",
+  "licenseUrl": "https://unsplash.com/license",
+  "licenseNote": "All listed official photo pages explicitly say Free to use under the Unsplash License. The license allows free commercial and noncommercial use; attribution is appreciated. Use as clearly labeled illustrative inspiration, not as salon portfolio work.",
+  "assets": [
+    {
+      "key": "bob",
+      "suggestedTitle": "Čisté línie",
+      "description": "Blonde shoulder-length bob, side portrait, pale neutral background, natural light.",
+      "imageUrl": "https://images.unsplash.com/photo-1779400204232-a0517dfdebd4?auto=format&fit=crop&w=1400&q=85",
+      "sourceUrl": "https://unsplash.com/photos/blonde-woman-with-bob-haircut-looking-back-ujh4vEL-v64",
+      "photographer": "ola szkolda",
+      "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/bob.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "key": "red",
+      "suggestedTitle": "Medené tóny",
+      "description": "Copper-red shoulder-length hair with soft ends, face obscured, warm muted woodland background.",
+      "imageUrl": "https://images.unsplash.com/photo-1494132494824-52f8bb6ed376?auto=format&fit=crop&w=1400&q=85",
+      "sourceUrl": "https://unsplash.com/photos/focused-photo-of-a-woman-wearing-red-long-sleeved-dress-FPDGV38N2mo",
+      "photographer": "Allef Vinicius",
+      "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/red.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "key": "natural-blonde",
+      "suggestedTitle": "Prirodzený pohyb",
+      "description": "Honey blonde waves in motion from behind, rust sweater and pale wood background; strong match for warm palette.",
+      "imageUrl": "https://images.unsplash.com/photo-1557353425-c6646a8809ce?auto=format&fit=crop&w=1400&q=85",
+      "sourceUrl": "https://unsplash.com/photos/woman-standing-near-board-x6SW4ShgZWs",
+      "photographer": "Tim Mossholder",
+      "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/natural-blonde.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "key": "balayage",
+      "suggestedTitle": "Jemné presvetlenie",
+      "description": "Long smooth blonde balayage viewed from behind, soft curled ends, light salon background.",
+      "imageUrl": "https://images.unsplash.com/photo-1554519934-e32b1629d9ee?auto=format&fit=crop&w=1400&q=85",
+      "sourceUrl": "https://unsplash.com/photos/person-wearing-black-top-W6cwaL7PMSw",
+      "photographer": "\"Jessie Dee\" Dabrowski www.jessiedee.net",
+      "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/balayage.jpg",
+      "orientation": "portrait"
+    },
+    {
+      "key": "bun",
+      "suggestedTitle": "Vlasy do drdola",
+      "description": "Back view of a twisted brown/blonde bun with hair stick; cooler blurred room and blue top.",
+      "imageUrl": "https://images.unsplash.com/photo-1558265246-e84a824bcd83?auto=format&fit=crop&w=1400&q=85",
+      "sourceUrl": "https://unsplash.com/photos/woman-wearing-blue-top-inside-room-D_1tyuWWbeY",
+      "photographer": "Kimia Zarifi",
+      "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/bun.jpg",
+      "orientation": "landscape"
+    },
+    {
+      "key": "long",
+      "suggestedTitle": "Dĺžka a lesk",
+      "description": "Long straight chestnut hair with simple half-up styling, rear view, warm sunlight and beige brick background.",
+      "imageUrl": "https://images.unsplash.com/photo-1613323885593-5fbcf35bf8ba?auto=format&fit=crop&w=1400&q=85",
+      "sourceUrl": "https://unsplash.com/photos/woman-in-black-tank-top-with-brown-hair-tie-HF19cpvy-Dw",
+      "photographer": "K8",
+      "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/long.jpg",
+      "orientation": "portrait"
+    }
+  ],
+  "alternative": {
+    "key": "pearl",
+    "description": "Close detail of soft brown low ponytail and pearl tie, dark blue background.",
+    "imageUrl": "https://images.unsplash.com/photo-1767442989822-1f8efcfefc15?auto=format&fit=crop&w=1400&q=85",
+    "sourceUrl": "https://unsplash.com/photos/womans-long-brown-hair-tied-with-pearl-bracelet-3KyDz8i0iG4",
+    "photographer": "Alina Chernovolova",
+    "localPath": "C:/Users/skulik/.codex/gallery-assets-hamuliakovo/pearl.jpg"
+  }
+}
