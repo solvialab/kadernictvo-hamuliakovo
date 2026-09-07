@@ -46,6 +46,11 @@ Produkčný CSS optimalizátor zlučoval samostatné `translate`/`scale` s `tran
 
 `pnpm run build:pages` vytvorí overený statický výstup v `dist/client`. Použite Node 22 LTS (lokálne overené 22.23.2); Node 24 na Windows po prerenderovaní spôsobil chybu libuv pri ukončení procesu.
 
-Predvolené `PAGES_BASE_URL` je `https://solvialab.github.io/solvialab/`; možno ho zmeniť premennou prostredia. Bežný `pnpm build` naďalej zostavuje Sites Worker.
+Predvolené `PAGES_BASE_URL` je `https://solvialab.github.io/kadernictvo-hamuliakovo/`; možno ho zmeniť premennou prostredia. Bežný `pnpm build` naďalej zostavuje Sites Worker.
 
 Export je zámerne samostatný: vinext beta.5 pri prerenderovaní nepripája frameworkový basePath, preto zostáva routing tejto jednej stránky na koreňovej ceste. Natívne odkazy používajú fragmenty, statické obrázky používajú `assetUrl`, JS/CSS majú absolútny assetPrefix. `scripts/finalize-pages.mjs` opravuje prefixy fontov a vyžaduje vyrenderovanú titulnú stránku, cenník a existujúce odkazované assety. Vytvára tiež `.nojekyll`.
+
+
+Verejný repozitár: https://github.com/solvialab/kadernictvo-hamuliakovo
+
+Workflow `.github/workflows/pages.yml` po zmene vetvy `main` zostaví a overí statický výstup a publikuje ho cez GitHub Pages. Pôvodný repozitár `solvialab/solvialab` zostáva súkromný; kópia zdroja je vo vetve `kadernictvo-hamuliakovo`.

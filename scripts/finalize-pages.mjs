@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const output = path.resolve('dist/client');
 const pages = new URL(
-  process.env.PAGES_BASE_URL || 'https://solvialab.github.io/solvialab/',
+  process.env.PAGES_BASE_URL || 'https://solvialab.github.io/kadernictvo-hamuliakovo/',
 );
 const base = pages.pathname.replace(/\/+$/, '');
 const manifest = JSON.parse(

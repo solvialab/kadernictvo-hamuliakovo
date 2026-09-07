@@ -3,7 +3,7 @@ import vinext from 'vinext';
 import { defineConfig } from 'vite';
 
 const pagesUrl = new URL(
-  process.env.PAGES_BASE_URL || 'https://solvialab.github.io/solvialab/',
+  process.env.PAGES_BASE_URL || 'https://solvialab.github.io/kadernictvo-hamuliakovo/',
 );
 const basePath = pagesUrl.pathname.replace(/\/+$/, '');
 
