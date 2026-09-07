@@ -1,6 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
 import { hairPrices, nailPrices } from '@/lib/prices';
-import { assetUrl } from '@/lib/assets';
 
 function PriceRows({ items }: { items: string[][] }) {
   return (
@@ -50,14 +49,6 @@ export function PriceList() {
               <p className="price-includes">{group.note}</p>
             </div>
           ))}
-          <a
-            className="text-link price-original"
-            href={assetUrl('/images/cennik-vlasy.png')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Cenník vlasov vo fotografii <ArrowUpRight size={16} />
-          </a>
         </div>
         <div className="price-column">
           <div className="price-heading">
@@ -67,14 +58,6 @@ export function PriceList() {
           <div className="price-group">
             <PriceRows items={nailPrices} />
           </div>
-          <a
-            className="text-link price-original"
-            href={assetUrl('/images/cennik-nechty.png')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Cenník nechtov vo fotografii <ArrowUpRight size={16} />
-          </a>
           <div className="price-booking">
             <p>Doprajte si čas pre seba.</p>
             <a className="button" href="#kontakt">

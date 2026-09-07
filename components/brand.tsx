@@ -2,6 +2,28 @@
 import { salon } from '@/lib/salon';
 import { assetUrl } from '@/lib/assets';
 
+export function LogoMark() {
+  return (
+    <span className="brand-mark" aria-hidden="true">
+      <img src={assetUrl('/images/logo.png')} alt="" width="812" height="806" />
+    </span>
+  );
+}
+
+export function LogoLockup() {
+  return (
+    <span className="logo-lockup">
+      <img
+        src={assetUrl('/images/logo.png')}
+        width="812"
+        height="806"
+        alt="Logo kaderníctva a nechtového dizajnu so ženskou tvárou, vlnitými vlasmi a nožnicami."
+        loading="lazy"
+      />
+    </span>
+  );
+}
+
 export function Brand() {
   return (
     <a
@@ -9,14 +31,7 @@ export function Brand() {
       href="#obsah"
       aria-label={`${salon.name} – úvod`}
     >
-      <span className="brand-mark" aria-hidden="true">
-        <img
-          src={assetUrl('/images/logo.png')}
-          alt=""
-          width="812"
-          height="806"
-        />
-      </span>
+      <LogoMark />
       <span className="brand-name">
         <span>
           Kaderníctvo <span>Hamuliakovo</span>

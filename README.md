@@ -13,7 +13,7 @@ Slovenský responzívny web pre komorný salón na Scilovej 5 v Hamuliakove. Cor
 
 ## Na doplnenie
 
-Otváracie hodiny sú v `lib/salon.ts`. Cenník v `lib/prices.ts` je prepísaný z dodaných fotografií vlasov a nechtov; originály možno otvoriť priamo zo sekcie Cenník. Presne dva profilové placeholdery v `app/page.tsx` čakajú na skutočné portréty, mená, špecializácie a predstavenia kaderníčok. Žiadne dodané zábery nezobrazujú tím.
+Otváracie hodiny sú v `lib/salon.ts`. Cenník v `lib/prices.ts` je prepísaný z dodaných fotografií vlasov a nechtov. Ceny sú dostupné priamo na stránke, bez duplicitných odkazov na fotografie cenníkov. Presne dva profilové placeholdery v `app/page.tsx` čakajú na skutočné portréty, mená, špecializácie a predstavenia kaderníčok. Žiadne dodané zábery nezobrazujú tím.
 
 Samostatné `beforeAfterPairs` sú prázdne. Jedna dodaná koláž s vlastným označením Pred/Po sa zobrazuje celá v galérii. Nevytvárajú sa umelé páry z nesúvisiacich záberov.
 
@@ -38,7 +38,7 @@ Celý `pnpm lint` zahŕňa aj pôvodné diagnostiky v nepoužívaných generovan
 
 ## Logo, cenník a responzívne rozloženie
 
-Dodané logo je celé v sekcii O nás; v navigácii a päte sa používa jeho symbol s čitateľným názvom salónu. Nová nepriehľadná navigácia má položku Cenník a mobilný panel do šírky 1100 px. Hlavný titulok už neprekrýva fotografiu. Päta obsahuje Instagram a odkaz Built by Solvia Lab s.r.o. s otvorením v novom okne.
+Pôvodné logo má presný CSS výrez bez zbytočných bielych okrajov. Celý znak s nápismi je v sekcii O nás a jeho biele pozadie splýva s podkladom stránky. Samostatný kruhový symbol sa používa v navigácii, mobilnom menu, úvode a päte; originálna kresba aj texty zostávajú zachované. Nová nepriehľadná navigácia má položku Cenník a mobilný panel do šírky 1100 px. Hlavný titulok už neprekrýva fotografiu. Päta obsahuje Instagram a odkaz Built by Solvia Lab s.r.o. s otvorením v novom okne.
 
 Produkčný CSS optimalizátor zlučoval samostatné `translate`/`scale` s `transform`. Preto sú tri nulové transformácie lightboxu nastavené aj inline na mieste použitia dialógu. Overené na skutočnom statickom výstupe, nielen v režime dev.
 

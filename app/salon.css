@@ -400,6 +400,7 @@ h2 {
 }
 .interior figcaption {
   display: flex;
+  background: var(--background);
   justify-content: space-between;
   gap: 20px;
   font-size: 12px;
@@ -1762,7 +1763,8 @@ h2 {
   gap: 13px;
   flex-shrink: 0;
 }
-.salon-brand .brand-mark {
+.brand-mark {
+  display: block;
   position: relative;
   width: 56px;
   height: 56px;
@@ -1770,13 +1772,14 @@ h2 {
   border-radius: 50%;
   overflow: hidden;
 }
+/* Original symbol: x=138, y=46, 526×526; preserve every original pixel. */
 .brand-mark img {
   position: absolute;
-  width: 155%;
+  width: 154.373%;
   max-width: none;
   height: auto;
-  left: -26.3%;
-  top: -9.2%;
+  left: -26.236%;
+  top: -8.745%;
 }
 .salon-brand .brand-name {
   display: block;
@@ -1787,7 +1790,7 @@ h2 {
 .salon-brand .brand-name small {
   display: block;
   font-family: var(--font-manrope), Arial, sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   margin-top: 9px;
   line-height: 1.5;
@@ -1906,11 +1909,6 @@ h1 {
   margin-top: 12px;
   max-width: 440px;
 }
-.price-original {
-  margin-top: 26px;
-  font-size: 14px;
-  gap: 12px;
-}
 .price-booking {
   margin-top: 52px;
   padding: 28px;
@@ -1922,9 +1920,22 @@ h1 {
   line-height: 1.1;
   margin-bottom: 24px;
 }
-.interior .full-logo {
+/* Full artwork: x=111, y=46, 576×688 plus six source pixels of breathing room. */
+.logo-lockup {
+  display: block;
+  position: relative;
   width: min(100%, 220px);
+  aspect-ratio: 588 / 700;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+.interior .logo-lockup img {
+  position: absolute;
+  width: 138.095%;
+  max-width: none;
   height: auto;
+  left: -17.857%;
+  top: -5.714%;
 }
 .instagram-contact {
   margin-top: 12px;
@@ -2150,7 +2161,7 @@ h1 {
   .price-booking {
     margin-top: 32px;
   }
-  .interior .full-logo {
+  .interior .logo-lockup {
     width: 160px;
     margin-bottom: 16px;
   }
@@ -2180,5 +2191,31 @@ h1 {
   }
   h1 {
     font-size: 54px;
+  }
+}
+
+.menu-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.menu-brand > span:last-child {
+  min-width: 0;
+}
+.menu-title[data-slot='sheet-title'] {
+  min-width: 0;
+}
+.intro > span > .brand-mark {
+  margin-bottom: 20px;
+}
+@media (max-width: 760px) {
+  .menu-title[data-slot='sheet-title'] {
+    font-size: clamp(22px, 5.5vw, 28px);
+  }
+  .menu-brand .brand-mark {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
   }
 }

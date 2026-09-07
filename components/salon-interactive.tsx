@@ -15,7 +15,7 @@ import {
 import { ContactAction } from '@/components/contact-action';
 import { salon } from '@/lib/salon';
 import { beforeAfterPairs } from '@/lib/gallery';
-import { Brand } from '@/components/brand';
+import { Brand, LogoMark } from '@/components/brand';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -65,7 +65,12 @@ export function Header() {
           </SheetTrigger>
           <SheetContent className="mobile-menu" showCloseButton={false}>
             <div className="mobile-menu-top">
-              <SheetTitle className="menu-title">{salon.name}</SheetTitle>
+              <SheetTitle className="menu-title">
+                <span className="menu-brand">
+                  <LogoMark />
+                  <span>{salon.name}</span>
+                </span>
+              </SheetTitle>
               <SheetClose className="icon-button" aria-label="Zatvoriť menu">
                 <X size={27} />
               </SheetClose>
@@ -255,6 +260,7 @@ export function Motion() {
         />
       </svg>
       <span>
+        <LogoMark />
         {salon.name}
         <small>KADERNÍCKY ATELIÉR</small>
       </span>

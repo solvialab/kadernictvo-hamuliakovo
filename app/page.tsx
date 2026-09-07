@@ -9,7 +9,7 @@ import {
   BeforeAfter,
 } from '@/components/salon-interactive';
 import { ContactAction } from '@/components/contact-action';
-import { Brand } from '@/components/brand';
+import { Brand, LogoLockup } from '@/components/brand';
 import { PriceList } from '@/components/price-list';
 import { assetUrl } from '@/lib/assets';
 import './salon.css';
@@ -230,14 +230,7 @@ export default function Home() {
               height="2048"
             />
             <figcaption>
-              <img
-                className="full-logo"
-                src={assetUrl('/images/logo.png')}
-                width="812"
-                height="806"
-                alt="Logo kaderníctva a nechtového dizajnu so ženskou tvárou, vlnitými vlasmi a nožnicami."
-                loading="lazy"
-              />
+              <LogoLockup />
               <span>MALÝ PRIESTOR. ČAS PRE VÁS.</span>
               <span>NÁŠ SALÓN · SCILOVÁ 5, HAMULIAKOVO</span>
             </figcaption>
