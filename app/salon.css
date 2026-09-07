@@ -1219,7 +1219,7 @@ h2 {
   inset: 0;
   z-index: 150;
   pointer-events: none;
-  animation: intro-hide 1.8s forwards;
+  animation: intro-hide 2.3s forwards;
 }
 .intro > svg {
   position: absolute;
@@ -1233,7 +1233,7 @@ h2 {
   top: 45%;
   font-family: var(--font-editorial), Georgia, serif;
   font-size: 39px;
-  animation: intro-name 1.65s both;
+  animation: intro-name 2.15s both;
   line-height: 1.1;
 }
 .intro small {
@@ -1246,14 +1246,14 @@ h2 {
 .strand-line {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: strand-draw 1.05s ease-in-out both;
+  animation: strand-draw 1.55s ease-in-out both;
 }
 .strand-mask {
   stroke-width: 0;
-  animation: strand-open 1.8s cubic-bezier(0.75, 0, 0.25, 1) both;
+  animation: strand-open 2.3s cubic-bezier(0.75, 0, 0.25, 1) both;
 }
 .intro-playing .hero-photo img {
-  animation: hero-settle 1.8s ease-out both;
+  animation: hero-settle 2.3s ease-out both;
 }
 .mobile-contact-bar {
   display: none;

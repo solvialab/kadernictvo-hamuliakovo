@@ -25,7 +25,7 @@ Metadáta sú v `app/layout.tsx`. Súkromný návrh má stále `noindex`.
 
 Opravená hlavná chyba polohy: Tailwind 4 nastavuje samostatnú vlastnosť `translate: -50% -50%`, ktorú samotné `transform: none` neruší. Celoplošný lightbox teraz ruší oba posuny. Rozloženie používa tri stabilné riadky a fotka rešpektuje dostupnú šírku aj výšku vrátane orientácie mobilu na šírku.
 
-Mobilné menu a spodná lišta používajú prístupné primitíva a safe-area. Lišta je pri otvorenom modale skrytá. Menu sa používa aj na úzkych tabletoch, aby sa nový názov nebil s navigáciou. Úvodná animácia trvá 1,8 sekundy, prehrá sa raz v relácii a pri obmedzenom pohybe sa preskočí. Základný obsah a priame odkazy na fotografie fungujú aj bez JavaScriptu.
+Mobilné menu a spodná lišta používajú prístupné primitíva a safe-area. Lišta je pri otvorenom modale skrytá. Menu sa používa aj na úzkych tabletoch, aby sa nový názov nebil s navigáciou. Úvodná animácia trvá 2,3 sekundy, prehrá sa raz v relácii a pri obmedzenom pohybe sa preskočí. Základný obsah a priame odkazy na fotografie fungujú aj bez JavaScriptu.
 
 ## Vývoj a kontrola
 

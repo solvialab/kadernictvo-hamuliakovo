@@ -150,7 +150,7 @@ export function Motion() {
         timer = setTimeout(() => {
           setIntro(false);
           document.documentElement.classList.remove('intro-playing');
-        }, 1800);
+        }, 2300);
       }
     } catch {
       /* Content stays visible when storage is unavailable. */
