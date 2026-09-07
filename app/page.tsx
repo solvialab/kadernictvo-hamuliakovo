@@ -9,6 +9,9 @@ import {
   BeforeAfter,
 } from '@/components/salon-interactive';
 import { ContactAction } from '@/components/contact-action';
+import { Brand } from '@/components/brand';
+import { PriceList } from '@/components/price-list';
+import { assetUrl } from '@/lib/assets';
 import './salon.css';
 
 export default function Home() {
@@ -51,11 +54,11 @@ export default function Home() {
             </div>
             <figure className="hero-photo">
               <img
-                src="/images/hero.webp"
+                src={assetUrl('/images/hero.webp')}
                 alt="Ilustračný módny portrét ženy s vlnitým gaštanovým mikádom"
                 width="1024"
                 height="1536"
-                srcSet="/images/hero-small.webp 533w, /images/hero.webp 1024w"
+                srcSet={`${assetUrl('/images/hero-small.webp')} 533w, ${assetUrl('/images/hero.webp')} 1024w`}
                 sizes="(max-width:760px) 73vw, 49vw"
                 fetchPriority="high"
               />
@@ -80,7 +83,7 @@ export default function Home() {
           <div className="philosophy-grid">
             <figure className="detail-photo">
               <img
-                src="/images/detail.webp"
+                src={assetUrl('/images/detail.webp')}
                 alt="Ilustračný detail rúk pri úprave vlnitých vlasov"
                 loading="lazy"
                 width="1024"
@@ -115,7 +118,7 @@ export default function Home() {
         </section>
         <section id="sluzby" className="services section">
           <div className="section-label">
-            <span>02 / SLUŽBY A CENY</span>
+            <span>02 / SLUŽBY</span>
             <span>OD KONZULTÁCIE PO POSLEDNÝ DETAIL</span>
           </div>
           <div className="section-intro">
@@ -132,9 +135,9 @@ export default function Home() {
               počas osobnej konzultácie.
             </p>
           </div>
-          <p className="draft-note">
-            NÁVRH PONUKY · Služby a ceny čakajú na potvrdenie salónom.
-          </p>
+          <a className="text-link services-price-link" href="#cennik">
+            Pozrieť kompletný cenník <ArrowDown size={16} />
+          </a>
           <div className="service-list">
             {services.map((s, i) => (
               <article className="service-row" key={s.name}>
@@ -159,9 +162,10 @@ export default function Home() {
             </a>
           </div>
         </section>
+        <PriceList />
         <section id="galeria" className="gallery section">
           <div className="section-label">
-            <span>03 / GALÉRIA</span>
+            <span>04 / GALÉRIA</span>
             <span>STRIH · FARBA · TEXTÚRA</span>
           </div>
           <div className="section-intro">
@@ -186,7 +190,7 @@ export default function Home() {
         </section>
         <section id="o-nas" className="team section">
           <div className="section-label">
-            <span>04 / O NÁS</span>
+            <span>05 / O NÁS</span>
             <span>DVE KADERNÍČKY. JEDEN OSOBNÝ PRÍSTUP.</span>
           </div>
           <h2>
@@ -217,8 +221,8 @@ export default function Home() {
           </div>
           <figure className="interior">
             <img
-              src="/images/salon-interier.webp"
-              srcSet="/images/salon-interier-small.webp 720w, /images/salon-interier.webp 1670w"
+              src={assetUrl('/images/salon-interier.webp')}
+              srcSet={`${assetUrl('/images/salon-interier-small.webp')} 720w, ${assetUrl('/images/salon-interier.webp')} 1670w`}
               sizes="(max-width:760px) 88vw, 60vw"
               alt="Interiér Kaderníctva Hamuliakovo s dvoma pracoviskami, okrúhlymi zrkadlami a drevenými lamelami."
               loading="lazy"
@@ -226,6 +230,14 @@ export default function Home() {
               height="2048"
             />
             <figcaption>
+              <img
+                className="full-logo"
+                src={assetUrl('/images/logo.png')}
+                width="812"
+                height="806"
+                alt="Logo kaderníctva a nechtového dizajnu so ženskou tvárou, vlnitými vlasmi a nožnicami."
+                loading="lazy"
+              />
               <span>MALÝ PRIESTOR. ČAS PRE VÁS.</span>
               <span>NÁŠ SALÓN · SCILOVÁ 5, HAMULIAKOVO</span>
             </figcaption>
@@ -233,7 +245,7 @@ export default function Home() {
         </section>
         <section id="kontakt" className="contact">
           <div className="section-label">
-            <span>05 / KONTAKT A OBJEDNANIE</span>
+            <span>06 / KONTAKT A OBJEDNANIE</span>
             <span>TEŠÍME SA NA VÁS</span>
           </div>
           <div className="contact-top">
@@ -304,17 +316,49 @@ export default function Home() {
                   '[FACEBOOK URL]'
                 )}
               </p>
-              {!salon.facebook && <small>Na doplnenie</small>}
+              <p className="instagram-contact">
+                <a
+                  href={salon.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram salónu ↗
+                </a>
+              </p>
             </div>
           </div>
           <footer>
-            <a className="brand" href="#obsah">
-              <span>{salon.name}</span>
-              <small>KADERNÍCKY ATELIÉR</small>
-            </a>
+            <Brand />
             <p>S citom pre každý prameň.</p>
-            <ContactAction kind="facebook" className="text-link" />
+            <div className="footer-socials">
+              <a
+                href={salon.facebook!}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook ↗
+              </a>
+              <a
+                href={salon.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram ↗
+              </a>
+            </div>
           </footer>
+          <div className="site-credit">
+            <span>
+              © {new Date().getFullYear()} {salon.name}
+            </span>
+            <a
+              href="https://www.solvialab.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Built by Solvia Lab s.r.o. <ArrowUpRight size={15} />
+            </a>
+          </div>
         </section>
       </main>
       <MobileContactBar />

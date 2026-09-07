@@ -21,3 +21,15 @@ Po oprave je okno na x=0, y=0. Sedem fotografií bolo otvorených a prejdených 
 ## Hranice kontroly
 
 Dotykové posúvanie, viacdotykové zrušenie gesta a obmedzený pohyb majú implementovanú obsluhu; fyzické zariadenia iOS/Android neboli k dispozícii. Neznáme údaje salónu neboli vymyslené. Úvodný portrét a detail zostávajú označené ilustrácie.
+
+
+## Doplnková kontrola loga, navigácie, cenníka a produkčného exportu
+
+- Prekrytie mobilného titulku odstránené: pri šírke 320 aj 390 px je medzi titulkom a fotografiou 34 px.
+- Kontrola textových hraníc a súrodencov rozloženia pri 320, 768, 1024 a 1440 px: bez vodorovného pretekania; kontrolované navigácia, úvody sekcií, služby, ceny, galéria a kontakty.
+- Mobilné menu obsahuje päť položiek vrátane Cenníka; prechod zatvorí panel a zohľadní výšku pevnej navigácie.
+- Cenník: 12 položiek vlasov a 6 položiek nechtov, presné ceny a zahrnuté služby podľa podkladov. Jednoznačný preklep „kompet“ bol upravený na „komplet“.
+- Odkazy na originály oboch cenníkov, Instagram a autorský kredit majú samostatné okno a rel=noopener noreferrer.
+- Produkčný statický export skúšaný cez lokálny HTTP server v podceste /solvialab/: načítané fonty, obrázky a hydratácia filtrov.
+- Prvý produkčný test odhalil odstránenie CSS translate resetu pri optimalizácii. Inline reset tento problém opravil. Galéria na hotovom exporte je na x=0/y=0, so správnym menením názvov a celými fotografiami. Filter Strihy načíta fotografiu 960×960 a vypne oba prepínače.
+- Export má kontrolu vyrenderovanej domovskej stránky a existencie odkazovaných assetov. Node 22 zostavenie skončilo úspešne.

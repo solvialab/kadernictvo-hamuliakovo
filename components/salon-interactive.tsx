@@ -15,18 +15,20 @@ import {
 import { ContactAction } from '@/components/contact-action';
 import { salon } from '@/lib/salon';
 import { beforeAfterPairs } from '@/lib/gallery';
+import { Brand } from '@/components/brand';
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const links = [
     ['Služby', 'sluzby'],
+    ['Cenník', 'cennik'],
     ['Galéria', 'galeria'],
     ['O nás', 'o-nas'],
     ['Kontakt', 'kontakt'],
   ];
   useEffect(() => {
     const update = () => {
-      if (window.innerWidth > 1020) setOpen(false);
+      if (window.innerWidth > 1100) setOpen(false);
     };
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
@@ -44,73 +46,88 @@ export function Header() {
   }
   return (
     <header className="site-header">
-      <a className="brand" href="#obsah" aria-label={`${salon.name} – úvod`}>
-        <span>{salon.name}</span>
-        <small>KADERNÍCKY ATELIÉR</small>
-      </a>
-      <nav aria-label="Hlavná navigácia">
-        {links.map(([name, id]) => (
-          <a href={`#${id}`} key={id}>
-            {name}
-          </a>
-        ))}
-      </nav>
-      <a className="button header-book" href="#kontakt">
-        Objednať sa <ArrowUpRight size={17} />
-      </a>
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger className="menu-trigger" aria-label="Otvoriť menu">
-          <Menu size={23} />
-          <span>Menu</span>
-        </SheetTrigger>
-        <SheetContent className="mobile-menu" showCloseButton={false}>
-          <div className="mobile-menu-top">
-            <SheetTitle className="menu-title">{salon.name}</SheetTitle>
-            <SheetClose className="icon-button" aria-label="Zatvoriť menu">
-              <X size={27} />
-            </SheetClose>
-          </div>
-          <SheetDescription className="menu-description">
-            KADERNÍCKY ATELIÉR · {salon.city}
-          </SheetDescription>
-          <nav aria-label="Mobilná navigácia">
-            {links.map(([name, id], i) => (
-              <a
-                href={`#${id}`}
-                key={id}
-                onClick={(e) => {
-                  e.preventDefault();
-                  follow(id);
-                }}
-              >
-                <span>0{i + 1}</span>
-                {name}
-                <ArrowUpRight size={28} />
-              </a>
-            ))}
-          </nav>
-          <a
-            className="button"
-            href="#kontakt"
-            onClick={(e) => {
-              e.preventDefault();
-              follow('kontakt');
-            }}
-          >
-            Objednať sa <ArrowUpRight size={20} />
-          </a>
-          <p>
-            Dve kreslá. Dve kaderníčky.
-            <br />
-            Priestor pre vás.
-          </p>
-        </SheetContent>
-      </Sheet>
-      <noscript>
-        <a className="noscript-menu" href="#kontakt">
-          Kontakt ↓
+      <div className="header-inner">
+        <Brand />
+        <nav aria-label="Hlavná navigácia">
+          {links.map(([name, id]) => (
+            <a href={`#${id}`} key={id}>
+              {name}
+            </a>
+          ))}
+        </nav>
+        <a className="button header-book" href="#kontakt">
+          Objednať sa <ArrowUpRight size={17} />
         </a>
-      </noscript>
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger className="menu-trigger" aria-label="Otvoriť menu">
+            <Menu size={23} />
+            <span>Menu</span>
+          </SheetTrigger>
+          <SheetContent className="mobile-menu" showCloseButton={false}>
+            <div className="mobile-menu-top">
+              <SheetTitle className="menu-title">{salon.name}</SheetTitle>
+              <SheetClose className="icon-button" aria-label="Zatvoriť menu">
+                <X size={27} />
+              </SheetClose>
+            </div>
+            <SheetDescription className="menu-description">
+              VLASY & NECHTOVÝ DIZAJN · {salon.city}
+            </SheetDescription>
+            <nav aria-label="Mobilná navigácia">
+              {links.map(([name, id], i) => (
+                <a
+                  href={`#${id}`}
+                  key={id}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    follow(id);
+                  }}
+                >
+                  <span>0{i + 1}</span>
+                  {name}
+                  <ArrowUpRight size={28} />
+                </a>
+              ))}
+            </nav>
+            <a
+              className="button"
+              href="#kontakt"
+              onClick={(e) => {
+                e.preventDefault();
+                follow('kontakt');
+              }}
+            >
+              Objednať sa <ArrowUpRight size={20} />
+            </a>
+            <p>
+              Dve kreslá. Dve kaderníčky.
+              <br />
+              Priestor pre vás.
+            </p>
+            <div className="menu-socials">
+              <a
+                href={salon.facebook!}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook ↗
+              </a>
+              <a
+                href={salon.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram ↗
+              </a>
+            </div>
+          </SheetContent>
+        </Sheet>
+        <noscript>
+          <a className="noscript-menu" href="#kontakt">
+            Kontakt ↓
+          </a>
+        </noscript>
+      </div>
     </header>
   );
 }
@@ -128,7 +145,7 @@ export function Motion() {
         timer = setTimeout(() => {
           setIntro(false);
           document.documentElement.classList.remove('intro-playing');
-        }, 1400);
+        }, 1800);
       }
     } catch {
       /* Content stays visible when storage is unavailable. */

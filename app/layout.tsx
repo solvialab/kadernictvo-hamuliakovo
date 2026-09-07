@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import './globals.css';
 import { salon } from '@/lib/salon';
+import { assetUrl } from '@/lib/assets';
 const serif = Cormorant_Garamond({
   variable: '--font-editorial',
   subsets: ['latin', 'latin-ext'],
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   title: `${salon.name} — Scilová 5`,
   description:
     'Kaderníctvo Hamuliakovo na Scilovej 5. Komorný salón s dvoma kreslami a osobným prístupom. Objednajte sa na 0944 402 476 alebo cez Facebook.',
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: assetUrl('/images/logo.png') },
   robots: { index: false, follow: false },
 };
 export const viewport: Viewport = {

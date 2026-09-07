@@ -12,13 +12,16 @@ import {
 } from '@/components/ui/dialog';
 import { galleryPhotos, type GalleryPhoto } from '@/lib/gallery';
 import { salon } from '@/lib/salon';
+import { assetUrl } from '@/lib/assets';
 
 function LightboxPhoto({ photo }: { photo: GalleryPhoto }) {
   const [status, setStatus] = useState<'loading' | 'loaded' | 'failed'>(
     'loading',
   );
   const [attempt, setAttempt] = useState(0);
-  const src = `/images/${photo.id}.webp${attempt ? `?retry=${attempt}` : ''}`;
+  const src = assetUrl(
+    `/images/${photo.id}.webp${attempt ? `?retry=${attempt}` : ''}`,
+  );
   return (
     <div className="lightbox-image-area" aria-busy={status === 'loading'}>
       {status === 'loading' && (
@@ -163,7 +166,7 @@ export function Gallery() {
         {visible.map((item, i) => (
           <figure key={item.id}>
             <a
-              href={`/images/${item.id}.webp`}
+              href={assetUrl(`/images/${item.id}.webp`)}
               onClick={(event) => {
                 if (
                   event.button !== 0 ||
@@ -181,8 +184,8 @@ export function Gallery() {
               aria-label={`Otvoriť fotografiu: ${item.title}`}
             >
               <img
-                src={`/images/${item.id}-small.webp`}
-                srcSet={`/images/${item.id}-small.webp ${item.thumbnailWidth}w, /images/${item.id}.webp ${item.width}w`}
+                src={assetUrl(`/images/${item.id}-small.webp`)}
+                srcSet={`${assetUrl(`/images/${item.id}-small.webp`)} ${item.thumbnailWidth}w, ${assetUrl(`/images/${item.id}.webp`)} ${item.width}w`}
                 sizes="(max-width:760px) 88vw, 44vw"
                 alt={item.alt}
                 width={item.width}
@@ -214,6 +217,9 @@ export function Gallery() {
       <Dialog open={open && !!photo} onOpenChange={setOpen}>
         <DialogContent
           className="lightbox"
+          // Keep individual transform resets inline: production CSS lowering
+          // otherwise combines them and leaves Tailwind's translate active.
+          style={{ translate: 'none', transform: 'none', scale: 'none' }}
           showCloseButton={false}
           initialFocus={closeButton}
           finalFocus={origin}

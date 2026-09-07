@@ -7,6 +7,7 @@ export const salon: {
   phoneDisplay: string | null;
   postalCode: string | null;
   facebook: string | null;
+  instagram: string;
   messenger: string | null;
   hours: string | null;
 } = {
@@ -17,38 +18,31 @@ export const salon: {
   phone: '+421944402476',
   phoneDisplay: '0944 402 476',
   facebook: 'https://www.facebook.com/profile.php?id=100086772062489',
+  instagram: 'https://www.instagram.com/kadernictvohamuliakovo/',
   messenger: null,
   hours: null,
 };
-export const services: {
-  name: string;
-  description: string;
-  price: string | null;
-}[] = [
+export const services = [
   {
     name: 'Strih a styling',
-    description: 'Tvar, ktorý rešpektuje vaše vlasy aj váš každodenný rytmus.',
-    price: null,
+    description:
+      'Dámske, pánske aj detské strihy. Tvar, ktorý vám prirodzene pristane.',
+    price: 'od 8 €',
   },
   {
     name: 'Farbenie',
     description:
-      'Jemné osvieženie alebo výrazná zmena. Odtieň vyberieme spolu.',
-    price: null,
+      'Osvieženie odtieňa aj výraznejšia zmena, vrátane strihu a úpravy.',
+    price: 'od 40 €',
   },
   {
-    name: 'Balayage a melír',
-    description: 'Svetlo, hĺbka a prirodzené prechody vo vlasoch.',
-    price: null,
+    name: 'Melír',
+    description: 'Svetlé pramene pre odrasty alebo celú dĺžku vlasov.',
+    price: 'od 55 €',
   },
   {
-    name: 'Regenerácia a starostlivosť',
-    description: 'Starostlivosť podľa toho, čo vaše vlasy práve potrebujú.',
-    price: null,
-  },
-  {
-    name: 'Spoločenské účesy',
-    description: 'Premyslený účes na chvíle, na ktorých vám záleží.',
-    price: null,
+    name: 'Nechtový dizajn',
+    description: 'Gélové nechty, gél lak, klasická aj japonská manikúra.',
+    price: 'od 10 €',
   },
 ];
