@@ -1,22 +1,9 @@
 /* oxlint-disable next/no-img-element -- Pre-optimized WebP assets also serve as direct links without JavaScript. */
 /* oxlint-disable react/react-compiler -- Effects intentionally initialize session-only intro and progressive enhancement after server hydration. */
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import {
-  ArrowUpRight,
-  ArrowLeft,
-  ArrowRight,
-  X,
-  Plus,
-  Menu,
-} from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-} from '@/components/ui/dialog';
+import { useEffect, useState } from 'react';
+import { ArrowUpRight, X, Menu } from 'lucide-react';
+
 import {
   Sheet,
   SheetContent,
@@ -27,7 +14,7 @@ import {
 } from '@/components/ui/sheet';
 import { ContactAction } from '@/components/contact-action';
 import { salon } from '@/lib/salon';
-import { galleryPhotos, beforeAfterPairs } from '@/lib/gallery';
+import { beforeAfterPairs } from '@/lib/gallery';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -39,7 +26,7 @@ export function Header() {
   ];
   useEffect(() => {
     const update = () => {
-      if (window.innerWidth > 760) setOpen(false);
+      if (window.innerWidth > 1020) setOpen(false);
     };
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
@@ -258,253 +245,7 @@ export function Motion() {
   );
 }
 
-export function Gallery() {
-  const [filter, setFilter] = useState('Všetko');
-  const [current, setCurrent] = useState<string | null>(null);
-  const [ready, setReady] = useState(false);
-  const [failed, setFailed] = useState(false);
-  const origin = useRef<HTMLAnchorElement | null>(null);
-  const touch = useRef<{ x: number; y: number } | null>(null);
-  const grid = useRef<HTMLDivElement | null>(null);
-  useEffect(() => setReady(true), []);
-  const categories = [
-    'Všetko',
-    ...['Strihy', 'Farby', 'Balayage', 'Styling'].filter((category) =>
-      galleryPhotos.some((p) => p.category === category),
-    ),
-  ];
-  const visible = galleryPhotos.filter(
-    (p) => filter === 'Všetko' || p.category === filter,
-  );
-  const index = visible.findIndex((p) => p.id === current);
-  const photo = visible[index];
-  const step = (direction: number) => {
-    if (visible.length) {
-      setCurrent(
-        visible[(index + direction + visible.length) % visible.length].id,
-      );
-      setFailed(false);
-    }
-  };
-  useEffect(() => {
-    if (!ready || matchMedia('(prefers-reduced-motion: reduce)').matches)
-      return;
-    grid.current?.animate(
-      [
-        { opacity: 0.3, transform: 'translateY(8px)' },
-        { opacity: 1, transform: 'translateY(0)' },
-      ],
-      { duration: 350, easing: 'ease-out' },
-    );
-  }, [filter, ready]);
-  useEffect(() => {
-    if (!ready || !('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
-              e.target.animate(
-                [
-                  { opacity: 0.35, transform: 'translateY(18px)' },
-                  { opacity: 1, transform: 'translateY(0)' },
-                ],
-                { duration: 650, easing: 'ease-out' },
-              );
-            observer.unobserve(e.target);
-          }
-        }),
-      { threshold: 0.08 },
-    );
-    grid.current
-      ?.querySelectorAll('figure')
-      .forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [ready, filter]);
-  return (
-    <>
-      <div className="gallery-tools">
-        <fieldset
-          className="gallery-filters"
-          aria-label="Filtrovať galériu"
-          hidden={!ready}
-        >
-          {categories.map((c) => (
-            <button
-              key={c}
-              aria-pressed={filter === c}
-              onClick={() => setFilter(c)}
-            >
-              {c}
-            </button>
-          ))}
-        </fieldset>
-        <p className="gallery-count" aria-live="polite">
-          {String(visible.length).padStart(2, '0')}{' '}
-          {visible.length === 1
-            ? 'fotografia'
-            : visible.length >= 2 && visible.length <= 4
-              ? 'fotografie'
-              : 'fotografií'}
-        </p>
-      </div>
-      <div
-        className={`gallery-grid ${filter !== 'Všetko' ? 'filtered' : ''}`}
-        ref={grid}
-      >
-        {visible.map((p, i) => (
-          <figure key={p.id}>
-            <a
-              href={`/images/${p.id}.webp`}
-              onClick={(e) => {
-                e.preventDefault();
-                origin.current = e.currentTarget;
-                setCurrent(p.id);
-                setFailed(false);
-              }}
-              aria-label={`Otvoriť fotografiu: ${p.title}`}
-            >
-              <img
-                src={`/images/${p.id}.webp`}
-                srcSet={`/images/${p.id}-small.webp 640w, /images/${p.id}.webp ${p.width}w`}
-                sizes="(max-width: 760px) 88vw, 45vw"
-                alt={p.alt}
-                width={p.width}
-                height={p.height}
-                loading="lazy"
-              />
-              <span className="gallery-zoom" aria-hidden="true">
-                <Plus size={23} />
-              </span>
-              <span className="image-type">INŠPIRÁCIA / {p.category}</span>
-            </a>
-            <figcaption>
-              <span>
-                <small>{String(i + 1).padStart(2, '0')} / </small>
-                {p.title}
-              </span>
-              <ArrowUpRight size={16} />
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-      {visible.length === 0 && (
-        <p className="empty-gallery">
-          Fotografie v tejto kategórii pripravujeme.
-        </p>
-      )}
-      <Dialog
-        open={!!photo}
-        onOpenChange={(open) => {
-          if (!open) setCurrent(null);
-        }}
-      >
-        <DialogContent
-          className="lightbox"
-          showCloseButton={false}
-          finalFocus={origin}
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowLeft') {
-              e.preventDefault();
-              step(-1);
-            }
-            if (e.key === 'ArrowRight') {
-              e.preventDefault();
-              step(1);
-            }
-          }}
-        >
-          <div className="lightbox-top">
-            <span aria-live="polite">
-              {String(index + 1).padStart(2, '0')} /{' '}
-              {String(visible.length).padStart(2, '0')}
-            </span>
-            <DialogClose
-              className="icon-button"
-              aria-label="Zatvoriť fotografiu"
-            >
-              <span>Zatvoriť</span>
-              <X size={25} />
-            </DialogClose>
-          </div>
-          {photo && (
-            <>
-              <div
-                className="lightbox-stage"
-                onTouchStart={(e) => {
-                  touch.current = {
-                    x: e.touches[0].clientX,
-                    y: e.touches[0].clientY,
-                  };
-                }}
-                onTouchEnd={(e) => {
-                  if (!touch.current) return;
-                  const x = e.changedTouches[0].clientX - touch.current.x;
-                  const y = e.changedTouches[0].clientY - touch.current.y;
-                  if (Math.abs(x) > 50 && Math.abs(x) > Math.abs(y) * 1.2)
-                    step(x < 0 ? 1 : -1);
-                  touch.current = null;
-                }}
-              >
-                <button
-                  className="icon-button previous"
-                  aria-label="Predchádzajúca fotografia"
-                  onClick={() => step(-1)}
-                >
-                  <ArrowLeft size={26} />
-                </button>
-                {failed ? (
-                  <output className="photo-error">
-                    Fotografiu sa nepodarilo načítať.
-                    <button
-                      className="text-link"
-                      onClick={() => setFailed(false)}
-                    >
-                      Skúsiť znova
-                    </button>
-                  </output>
-                ) : (
-                  <img
-                    key={photo.id}
-                    src={`/images/${photo.id}.webp`}
-                    alt={photo.alt}
-                    width={photo.width}
-                    height={photo.height}
-                    onError={() => setFailed(true)}
-                  />
-                )}
-                <button
-                  className="icon-button next"
-                  aria-label="Nasledujúca fotografia"
-                  onClick={() => step(1)}
-                >
-                  <ArrowRight size={26} />
-                </button>
-              </div>
-              <div className="lightbox-bottom">
-                <div>
-                  <DialogTitle className="lightbox-title">
-                    {photo.title}
-                  </DialogTitle>
-                  <DialogDescription className="lightbox-description">
-                    {photo.category} · Ilustračná fotografia, nie práca salónu.
-                  </DialogDescription>
-                </div>
-                <a
-                  href={photo.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Foto: {photo.photographer} / Unsplash ↗
-                </a>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
-    </>
-  );
-}
+export { Gallery } from './gallery';
 export function MobileContactBar() {
   return (
     <div className="mobile-contact-bar" aria-label="Rýchly kontakt">

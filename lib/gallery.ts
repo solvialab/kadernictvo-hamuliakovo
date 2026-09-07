@@ -6,73 +6,79 @@ export type GalleryPhoto = {
   alt: string;
   width: number;
   height: number;
-  source: string;
-  photographer: string;
+  thumbnailWidth: number;
+  comparison?: boolean;
 };
+// Originálne koláže dodané salónom. V náhľade aj lightboxe ostávajú celé.
+// Kategórie pomenúvajú viditeľný výsledok; nepotvrdené techniky nepripisujeme.
 export const galleryPhotos: GalleryPhoto[] = [
   {
-    id: 'bob',
-    title: 'Čisté línie',
-    category: 'Strihy',
-    alt: 'Ilustračný portrét blond mikáda z profilu',
-    width: 1061,
-    height: 1600,
-    source: 'https://unsplash.com/photos/ujh4vEL-v64',
-    photographer: 'ola szkolda',
-  },
-  {
-    id: 'natural-blonde',
-    title: 'Prirodzený pohyb',
-    category: 'Balayage',
-    alt: 'Ilustračné medové vlny v pohybe, pohľad zozadu',
-    width: 1200,
-    height: 800,
-    source: 'https://unsplash.com/photos/x6SW4ShgZWs',
-    photographer: 'Tim Mossholder',
-  },
-  {
-    id: 'red',
+    id: 'salon-medene-tony',
     title: 'Medené tóny',
     category: 'Farby',
-    alt: 'Ilustračný detail medených vlasov v prirodzenom svetle',
-    width: 1200,
-    height: 800,
-    source: 'https://unsplash.com/photos/FPDGV38N2mo',
-    photographer: 'Allef Vinicius',
+    alt: 'Koláž dvoch záberov vlasov po plecia v červenohnedom a medenom odtieni.',
+    width: 2048,
+    height: 2048,
+    thumbnailWidth: 720,
   },
   {
-    id: 'balayage',
-    title: 'Jemné presvetlenie',
-    category: 'Balayage',
-    alt: 'Ilustračné dlhé blond vlasy s jemnými farebnými prechodmi',
-    width: 1067,
+    id: 'salon-svetle-pramene',
+    title: 'Svetlé pramene',
+    category: 'Farby',
+    alt: 'Dva pohľady na dlhé rovné vlasy so svetlými prameňmi a tmavšími tónmi.',
+    width: 1600,
     height: 1600,
-    source: 'https://unsplash.com/photos/W6cwaL7PMSw',
-    photographer: 'Jessie Dee Dabrowski',
+    thumbnailWidth: 720,
   },
   {
-    id: 'bun',
-    title: 'Umenie jednoduchosti',
-    category: 'Styling',
-    alt: 'Ilustračný hnedý drdol so svetlými prameňmi',
-    width: 1200,
-    height: 802,
-    source: 'https://unsplash.com/photos/D_1tyuWWbeY',
-    photographer: 'Kimia Zarifi',
+    id: 'salon-medena-premena',
+    title: 'Premena do medených tónov',
+    category: 'Farby',
+    alt: 'Koláž pred a po úprave: zvlnené svetlejšie vlasy a dva pohľady na hladký medenohnedý účes.',
+    width: 1600,
+    height: 1600,
+    thumbnailWidth: 720,
+    comparison: true,
   },
   {
-    id: 'long',
+    id: 'salon-medene-vlny',
+    title: 'Kratší strih, medené vlny',
+    category: 'Strihy',
+    alt: 'Koláž svetlohnedých vlasov po plecia a troch pohľadov na kratší medený účes s vlnami.',
+    width: 960,
+    height: 960,
+    thumbnailWidth: 720,
+  },
+  {
+    id: 'salon-svetle-a-tmave',
+    title: 'Svetlý a tmavý odtieň',
+    category: 'Farby',
+    alt: 'Dvojica zadných pohľadov na dlhé hladké vlasy vo veľmi tmavom a svetlom odtieni.',
+    width: 2048,
+    height: 2048,
+    thumbnailWidth: 720,
+  },
+  {
+    id: 'salon-dlhe-tmave',
     title: 'Dĺžka a lesk',
     category: 'Styling',
-    alt: 'Ilustračné dlhé gaštanové vlasy s jednoduchým zopnutím',
-    width: 1067,
+    alt: 'Tri pohľady na veľmi dlhé tmavé rovné vlasy s hladkým povrchom.',
+    width: 1600,
     height: 1600,
-    source: 'https://unsplash.com/photos/HF19cpvy-Dw',
-    photographer: 'K8',
+    thumbnailWidth: 720,
+  },
+  {
+    id: 'salon-pramene-a-vlny',
+    title: 'Svetlé pramene a vlny',
+    category: 'Styling',
+    alt: 'Koláž hnedých vlasov a dvoch pohľadov na účes so svetlými prameňmi a zvlnenými koncami.',
+    width: 2048,
+    height: 2048,
+    thumbnailWidth: 720,
   },
 ];
-// Pridajte iba overenú dvojicu toho istého účesu/klienta pred a po.
-// Prázdne pole nezobrazuje sekciu ani prázdny priestor na stránke.
+// Overená koláž pred/po sa zobrazuje celá v galérii, bez duplikovania panelov.
+// Samostatné porovnanie sa zobrazí až po doplnení overenej dvojice súborov.
 export const beforeAfterPairs: {
   id: string;
   before: string;

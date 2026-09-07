@@ -8,7 +8,7 @@ export function contactUrl(kind: 'phone' | 'facebook' | 'map') {
       : null;
   if (kind === 'map')
     return salon.address
-      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${salon.address}, ${salon.city}`)}`
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${salon.address}, ${salon.postalCode || ''} ${salon.city}, Slovakia`)}`
       : null;
   const value = salon.messenger || salon.facebook;
   if (!value) return null;

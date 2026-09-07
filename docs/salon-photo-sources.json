@@ -1,0 +1,83 @@
+{
+  "source": "Fotografie dodané používateľom, 7. 9. 2026",
+  "processing": "Zachovaný celý obraz, iba optimalizácia WebP a správna orientácia.",
+  "images": [
+    {
+      "id": "salon-medene-tony",
+      "source": "485615666_627931190109278_1674695344848545112_n.jpg",
+      "width": 2048,
+      "height": 2048,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 820356
+    },
+    {
+      "id": "salon-svetle-pramene",
+      "source": "557243681_777721785130217_151341240848382753_n.jpg",
+      "width": 1600,
+      "height": 1600,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 404288
+    },
+    {
+      "id": "salon-medena-premena",
+      "source": "561596730_793468436888885_891786229733913275_n.jpg",
+      "width": 1600,
+      "height": 1600,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 354210
+    },
+    {
+      "id": "salon-medene-vlny",
+      "source": "585894886_822568763978852_5193041782109998036_n.jpg",
+      "width": 960,
+      "height": 960,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 158528
+    },
+    {
+      "id": "salon-svetle-a-tmave",
+      "source": "585914205_822570547312007_4029415600876929434_n.jpg",
+      "width": 2048,
+      "height": 2048,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 277160
+    },
+    {
+      "id": "salon-dlhe-tmave",
+      "source": "636891873_892578853644509_7478396871891583193_n.jpg",
+      "width": 1600,
+      "height": 1600,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 300492
+    },
+    {
+      "id": "salon-pramene-a-vlny",
+      "source": "700955871_964133579822369_5084755343280952907_n.jpg",
+      "width": 2048,
+      "height": 2048,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 720,
+      "bytes": 897474
+    },
+    {
+      "id": "salon-interier",
+      "source": "468293791_546848238217574_646551672757237120_n.jpg",
+      "width": 1670,
+      "height": 2048,
+      "thumbnailWidth": 720,
+      "thumbnailHeight": 883,
+      "bytes": 468554
+    }
+  ],
+  "omitted": [
+    "571756545_803667192535676_3342153080968499971_n.jpg",
+    "585545879_822570550645340_4157505068276353445_n.jpg"
+  ],
+  "omittedReason": "Súhrnné koláže opakujú zábery z vybraných samostatných koláží."
+}

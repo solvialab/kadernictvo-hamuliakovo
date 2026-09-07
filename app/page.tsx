@@ -19,7 +19,7 @@ export default function Home() {
       </a>
       <Header />
       <Motion />
-      <main id="obsah">
+      <main id="obsah" tabIndex={-1}>
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-eyebrow eyebrow">
             <span>KADERNÍCTVO · {salon.city}</span>
@@ -171,15 +171,15 @@ export default function Home() {
               <em>úlohe.</em>
             </h2>
             <p>
-              Výber inšpirácií pre váš ďalší účes.
+              Skutočné účesy z nášho salónu.
               <br />
-              Ilustračné fotografie dočasne zastupujú
+              Farby, strihy a detaily, ktoré
               <br />
-              budúcu galériu skutočnej práce salónu.
+              hovoria za našu prácu.
             </p>
           </div>
           <p className="draft-note">
-            ILUSTRAČNÁ GALÉRIA · Fotografie nie sú prácou salónu.
+            NAŠA PRÁCA · Fotografie z Kaderníctva Hamuliakovo.
           </p>
           <Gallery />
           <BeforeAfter />
@@ -217,15 +217,17 @@ export default function Home() {
           </div>
           <figure className="interior">
             <img
-              src="/images/interior.webp"
-              alt="Ilustračný malý kadernícky ateliér s presne dvoma kreslami a dvoma zrkadlami"
+              src="/images/salon-interier.webp"
+              srcSet="/images/salon-interier-small.webp 720w, /images/salon-interier.webp 1670w"
+              sizes="(max-width:760px) 88vw, 60vw"
+              alt="Interiér Kaderníctva Hamuliakovo s dvoma pracoviskami, okrúhlymi zrkadlami a drevenými lamelami."
               loading="lazy"
-              width="1536"
-              height="1024"
+              width="1670"
+              height="2048"
             />
             <figcaption>
               <span>MALÝ PRIESTOR. ČAS PRE VÁS.</span>
-              <span>ILUSTRAČNÝ INTERIÉR · SKUTOČNÚ FOTOGRAFIU DOPLNÍME</span>
+              <span>NÁŠ SALÓN · SCILOVÁ 5, HAMULIAKOVO</span>
             </figcaption>
           </figure>
         </section>
@@ -259,7 +261,15 @@ export default function Home() {
           <div className="contact-details">
             <div>
               <h3>ZAVOLAJTE NÁM</h3>
-              <p>{salon.phone || '[TELEFÓN]'}</p>
+              <p>
+                {salon.phone ? (
+                  <a className="phone-number" href={`tel:${salon.phone}`}>
+                    {salon.phoneDisplay || salon.phone}
+                  </a>
+                ) : (
+                  '[TELEFÓN]'
+                )}
+              </p>
               {!salon.phone && <small>Na doplnenie</small>}
             </div>
             <div>
@@ -267,7 +277,9 @@ export default function Home() {
               <p>
                 {salon.address || '[ADRESA]'}
                 <br />
-                {salon.city}
+                {salon.postalCode} {salon.city}
+                <br />
+                Slovensko
               </p>
               <ContactAction kind="map" className="text-link" />
               {!salon.address && <small>Adresa na doplnenie</small>}

@@ -4,15 +4,19 @@ export const salon: {
   city: string;
   address: string | null;
   phone: string | null;
+  phoneDisplay: string | null;
+  postalCode: string | null;
   facebook: string | null;
   messenger: string | null;
   hours: string | null;
 } = {
-  name: '[Názov salónu]',
-  city: '[MESTO]',
-  address: null,
-  phone: null,
-  facebook: null,
+  name: 'Kaderníctvo Hamuliakovo',
+  city: 'Hamuliakovo',
+  address: 'Scilová 5',
+  postalCode: '900 43',
+  phone: '+421944402476',
+  phoneDisplay: '0944 402 476',
+  facebook: 'https://www.facebook.com/profile.php?id=100086772062489',
   messenger: null,
   hours: null,
 };

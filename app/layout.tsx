@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import './globals.css';
+import { salon } from '@/lib/salon';
 const serif = Cormorant_Garamond({
   variable: '--font-editorial',
   subsets: ['latin', 'latin-ext'],
@@ -14,9 +15,9 @@ const sans = Manrope({
   display: 'swap',
 });
 export const metadata: Metadata = {
-  title: '[Názov salónu] — Kadernícky ateliér',
+  title: `${salon.name} — Scilová 5`,
   description:
-    'Komorné kaderníctvo s dvoma kreslami a osobným prístupom. Strih, farba a chvíľa pre seba. Objednávanie telefonicky a cez Facebook.',
+    'Kaderníctvo Hamuliakovo na Scilovej 5. Komorný salón s dvoma kreslami a osobným prístupom. Objednajte sa na 0944 402 476 alebo cez Facebook.',
   icons: { icon: '/favicon.svg' },
   robots: { index: false, follow: false },
 };

@@ -38,3 +38,6 @@ next-env.d.ts
 /work/
 
 *.tsbuildinfo
+
+# User-supplied originals; optimized site copies are in public/images
+/fotky/
